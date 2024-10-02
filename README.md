@@ -1,9 +1,25 @@
 
+done:
+https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
+
+
+```bash
+terraform init
+terraform fmt
+terraform validate
+terraform apply
+terraform show
+terraform state list
+```
+
+
 brew update && brew install azure-cli
 
 az login
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+
+
 
 
 To persist environment variables across terminal sessions, you can save them in a profile configuration file that gets sourced every time a new shell is opened.
@@ -89,29 +105,6 @@ However, in this approach:
 - You lose the ability to enforce variable types, provide descriptions, or set optional defaults.
 - This can make your Terraform configuration harder to understand, especially for others or if the project grows over time.
 
-### Example With Both `variables.tf` and `terraform.tfvars` (Best Practice):
-Using both files, you get the benefits of structure, clarity, and flexibility:
-
-```hcl
-# variables.tf
-variable "resource_group_name" {
-  description = "Name of the resource group"
-  type        = string
-  default     = "myTFResourceGroup"
-}
-
-variable "resource_group_location" {
-  description = "Location of the resource group"
-  type        = string
-  default     = "westus2"
-}
-```
-
-```hcl
-# terraform.tfvars (for environment-specific overrides)
-resource_group_name    = "myProductionResourceGroup"
-resource_group_location = "eastus"
-```
 
 ### Conclusion:
 While **you can use `terraform.tfvars` without `variables.tf`**, it's not the ideal approach for larger projects. **Using `variables.tf` is recommended** for documentation, validation, and better maintainability, while `terraform.tfvars` or other `.tfvars` files are great for overriding those values in different environments.
