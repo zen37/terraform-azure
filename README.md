@@ -1,12 +1,17 @@
 
-done:
+rg created
 https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
+
+vnet added to rg
+https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-change
+
 
 
 ```bash
 terraform init
 terraform fmt
 terraform validate
+terraform plan
 terraform apply
 terraform show
 terraform state list

@@ -9,3 +9,27 @@ variable "resource_group_location" {
   type        = string
   default     = "westus2"
 }
+
+variable "vnet_name" {
+  description = "The name of the Virtual Network"
+  type        = string
+  default     = "vnet-terraform"
+}
+
+variable "address_space" {
+  description = "The address space for the Virtual Network"
+  type        = list(string)
+  default     = ["10.0.0.0/16"]
+}
+
+variable "other_vnet_name" {
+  description = "The name of the Virtual Network"
+  type        = string
+  default     = "vnet-terraform-2"
+}
+
+variable "other_address_space" {
+  description = "The address space for the Virtual Network"
+  type        = list(string)
+  default     = ["10.1.0.0/16"]
+}
