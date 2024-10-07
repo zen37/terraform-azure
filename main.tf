@@ -1,6 +1,11 @@
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.resource_group_location
+
+  tags = {
+    environment = var.environment
+    team = var.team
+  }
 }
 
 # Create a virtual network
